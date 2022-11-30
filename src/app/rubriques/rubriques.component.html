@@ -1,0 +1,175 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" *ngIf ="mode==0">
+                    <div *ngIf ="showAdminBoard">
+                        <a class="glyphicon glyphicon-remove pull-right" (click)="ondeleterubrique()"></a>
+                        <a class="glyphicon glyphicon-edit pull-right" (click)="onEditProduct()"></a>
+                    </div>
+                    <div class="header">
+                        <h4 class="title">{{rubrique.libelle}}</h4>
+                        <p class="category">{{rubrique.zoneDSN}}</p>
+                    </div>
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="typo-line">
+                                <h5><p class="category">Phase NEODeS</p>{{rubrique.phase}}</h5>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="typo-line">
+                            <h5><p class="category">Commentaire</p>{{rubrique.commentaire}}</h5>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label>About Me</label>
+                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="typo-line">
+                            <h1><p class="category">Header 1</p>Light Bootstrap Table Heading </h1>
+                        </div>
+
+                        <div class="mat-form-field-infix ng-tns-c58-3">
+                            <input matinput="" type="email" class="mat-input-element mat-form-field-autofill-control ng-tns-c58-3 cdk-text-field-autofill-monitored" id="mat-input-3" aria-invalid="false" aria-required="false">
+                            <span class="mat-form-field-label-wrapper ng-tns-c58-3"><!----></span>
+                            </div><div class="row">
+                            <div class="col-md-12">
+                              
+                                <input matInput placeholder="Adress" type="text">
+                              
+                            </div>
+                        </div>
+
+                        <div class="typo-line">
+                            <h2><p class="category">Header 2</p>Light Bootstrap Table Heading</h2>
+                        </div>
+                        <div class="typo-line">
+                            <h3><p class="category">Header 3</p>Light Bootstrap Table Heading</h3>
+                        </div>
+                        <div class="typo-line">
+                            <h4><p class="category">Header 4</p>Light Bootstrap Table Heading</h4>
+                        </div>
+                        <div class="typo-line">
+                            <h5><p class="category">Header 5</p>Light Bootstrap Table Heading</h5>
+                        </div>
+                        <div class="typo-line">
+                            <h6><p class="category">Header 6</p>Light Bootstrap Table Heading</h6>
+                        </div>
+                        <div class="typo-line">
+                            <p><span class="category">Paragraph</span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
+                        </div>
+                        <div class="typo-line">
+                            <p class="category">Quote</p>
+                            <blockquote>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
+                                </p>
+                                <small>
+                                    Steve Jobs, CEO Apple
+                                </small>
+                            </blockquote>
+                        </div>
+
+                        <div class="typo-line">
+                            <p class="category">Muted Text</p>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                            </p>
+                        </div>
+                        <div class="typo-line">
+                            <!--
+                            there are also "text-info", "text-success", "text-warning", "text-danger" clases for the text
+                            -->
+                            <p class="category">Coloured Text
+                            </p>
+                            <p class="text-primary">
+                                Text Primary - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
+                            </p>
+                            <p class="text-info">
+                                Text Info - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
+                            </p>
+                            <p class="text-success">
+                                Text Success - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
+                            </p>
+                            <p class="text-warning">
+                                Text Warning - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
+                            </p>
+                            <p class="text-danger">
+                                Text Danger - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
+                            </p>
+                        </div>
+                        <div class="typo-line">
+                            <h2><p class="category">Small Tag</p>Header with small subtitle <br><small>".small" is a tag for the headers</small> </h2>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="card" *ngIf ="mode==1">
+                    <div class="content">
+                        <div class="header">
+                            <h4 class="title">Editer la rubrique</h4>
+                        </div>
+                        <div class="content">
+                        <form #f="ngForm" (ngSubmit)="onUpdateProduct(f.value)">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Libelle</label>
+                                    <input type="text" name="libelle" class="form-control" placeholder="Libelle" ngModel [(ngModel)]="rubrique.libelle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>zoneDSN</label>
+                                    <input type="text" name="zoneDSN" class="form-control" placeholder="zoneDSN" ngModel [(ngModel)]="rubrique.zoneDSN">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Phase</label>
+                                    <input type="text" name="phase" class="form-control" placeholder="Phase" ngModel [(ngModel)]="rubrique.phase">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Commentaire</label>
+                                    <textarea rows="3" name="commentaire" class="form-control" placeholder="Here can be your description" ngModel [(ngModel)]="rubrique.commentaire">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Editer rubrique</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <div class="card" *ngIf ="mode==3">
+                    <div class="content">
+                        <div class="header">
+                            <h4 class="title">Editer la rubrique</h4>
+                        </div>
+                        <div class="content">
+                       
+                            <div class="alert alert-success" *ngIf="isDelSuccessful">
+                                Rubriques supprimée !
+                            </div>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

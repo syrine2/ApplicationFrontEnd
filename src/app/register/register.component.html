@@ -1,0 +1,116 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Ajouter utilisateur</h4>
+                    </div>
+                    <div class="content">
+                        <form 
+                        *ngIf="!isSuccessful"
+                        name="form"
+                        (ngSubmit)="f.form.valid && onSubmit()"
+                        #f="ngForm"
+                        novalidate>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nom d'utilisateur</label>
+                                        <input type="text" class="form-control" placeholder="Nom d'utilisateur" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel">
+                                        <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                                            <div *ngIf="username.errors.required">Nom d'utilisateur est obligatoire</div>
+                                            <div *ngIf="username.errors.minlength">
+                                                Le nom d'utilisateur doit comporter au moins 3 caractères
+                                            </div>
+                                            <div *ngIf="username.errors.maxlength">
+                                                Le nom d'utilisateur doit comporter au maximum 20 caractères
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Addresse Email</label>
+                                        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="form.email" required email #email="ngModel" >
+                                        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                                            <div *ngIf="email.errors.required">Email est obligatoire</div>
+                                            <div *ngIf="email.errors.email">
+                                                L'e-mail doit être une adresse e-mail valide
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Mot Passe</label>
+                                        <input type="password" class="form-control" placeholder="Mot Passe" [(ngModel)]="form.password" required minlength="6" #password="ngModel" >
+                                        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                                            <div *ngIf="password.errors.required">Mot Passe est obligatoire</div>
+                                            <div *ngIf="password.errors.minlength">
+                                            Le mot de passe doit être au moins de 6 caractères
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                         <div>
+                                            <input type="checkbox" id="roles" name="roles" value="admin" [(ngModel)]="form.admin" #admin="ngModel" >
+                                            <label for="roles"> Administrateur</label>
+                                          </div>     
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Ajouter utilisateur</button>
+                            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                                Signup failed!<br />{{ errorMessage }}
+                              </div>
+                            <div class="clearfix"></div>
+                        </form>
+                        <div class="alert alert-success" *ngIf="isSuccessful">
+                            Enregistrement effectué avec succès !
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <a href="#">
+                                <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
+
+                                <h4 class="title">Mike Andrew<br />
+                                    <small>michael24</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <p class="description text-center"> "Lamborghini Mercy <br>
+                            Your chick she so thirsty <br>
+                            I'm in that two seat Lambo"
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

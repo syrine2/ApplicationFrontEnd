@@ -1,0 +1,94 @@
+
+<div class="sidebar-wrapper">
+    <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text">
+            <div class="logo-img">
+                <img src="/assets/img/angular2-logo-white.png"/>
+            </div>
+            Creative Tim
+        </a>
+    </div>
+    <ul class="nav responsive-nav">
+        <li *ngIf="isMobileMenu()">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-dashboard"></i>
+				<p class="hidden-lg hidden-md">Dashboard</p>
+            </a>
+        </li>
+        <li class="dropdown" *ngIf="isMobileMenu()">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-globe"></i>
+                    <b class="caret hidden-sm hidden-xs"></b>
+                    <span class="notification hidden-sm hidden-xs">5</span>
+					<p class="hidden-lg hidden-md">
+						5 Notifications
+						<b class="caret"></b>
+					</p>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Notification 1</a></li>
+                <li><a href="#">Notification 2</a></li>
+                <li><a href="#">Notification 3</a></li>
+                <li><a href="#">Notification 4</a></li>
+                <li><a href="#">Another notification</a></li>
+              </ul>
+        </li>
+        <li *ngIf="isMobileMenu()">
+           <a>
+                <i class="fa fa-search"></i>
+				<p class="hidden-lg hidden-md">Search</p>
+            </a>
+        </li>
+        <li *ngIf="isMobileMenu()">
+           <a href="">
+               <p>{{username}}</p>
+            </a>
+        </li>
+        <li class="dropdown" *ngIf="isMobileMenu()">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                    <p>
+    					Dropdown
+    					<b class="caret"></b>
+    				</p>
+
+              </a>
+              <ul class="dropdown-menu">
+                <li *ngIf = "showAdminBoard"><a href="#register">Ajouter utilisateur</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+        </li>
+        <li *ngIf="isMobileMenu()">
+            <a  (click)="onLogout()">
+                <p>Log out</p>
+            </a>
+        </li>
+        <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+            <a  [routerLink]="[menuItem.path]">
+                <i class="{{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        <u1 *ngIf="blocs">
+            <li class="dropdown" *ngFor= "let c of blocs" >
+                <a class="dropdown-toggle" data-toggle="collapse"  aria-expanded="false" href="#Forms{{c.id}}" >
+                      <p>{{c.libelle}} <b class="caret"></b></p>
+                      
+                    </a>
+                <ul class="collapse in" id="Forms{{c.id}}"  aria-expanded="false">
+                    <a class="nav" *ngFor= "let r of c.rubriques" routerLinkActive="active" >       
+                    <u1>     
+                      <a href="#/rubriques/{{r.id}}"><p>{{r.zoneDSN}}</p></a>
+                    </u1>
+                </a></ul>
+          </li>
+        </u1>
+        
+            
+    </ul>
+</div>
